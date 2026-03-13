@@ -1,6 +1,6 @@
 const { defineConfig } = require('@playwright/test');
 
-const BASE_URL = process.env.BASE_URL || 'https://shopping-listapp-hj21cv.vercel.app';
+const BASE_URL = process.env.BASE_URL || 'https://shopping-listapp-nu-nine.vercel.app';
 
 module.exports = defineConfig({
   testDir: './tests',
