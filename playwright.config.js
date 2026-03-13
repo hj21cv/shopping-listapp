@@ -1,13 +1,17 @@
 const { defineConfig } = require('@playwright/test');
-const path = require('path');
+
+const BASE_URL = process.env.BASE_URL || 'https://shopping-listapp-hj21cv.vercel.app';
 
 module.exports = defineConfig({
   testDir: './tests',
+  workers: 1,
+  timeout: 30000,
   use: {
-    baseURL: 'file://' + path.resolve(__dirname, 'shopping-list.html').replace(/\\/g, '/'),
-    headless: false,   // 브라우저 창을 직접 볼 수 있게
+    baseURL: BASE_URL,
+    headless: true,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
+    actionTimeout: 15000,
   },
   reporter: [['list'], ['html', { open: 'on-failure' }]],
 });
